@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+     
+    <h1 id="title">Dom Form Manipulation</h1>
+    <p id="description">Dom Manipulation form using with HTML, CSS, and DOM.</p>
+    <div class="all">
+          
+     <form action="" id="form">
+      <div class="form-group">
+        <label class ="form-field" for="firstName">Firstname:<span style="color:rgb(250, 152, 152)">....</label>
+        <input class ="form-field" type="text" placeholder="Enter your first name" id="first-name" required><br>
+      
+        <label class ="form-field" for="lastName">Lastname:<span style="color:rgb(250, 152, 152)">....</label>
+        <input class ="form-field" type="text" placeholder="Enter your last name" id="last-name" required><br>
+      
+        <label class ="form-field" for="adress">Address:<span style="color:rgb(250, 152, 152)">.......</span></label>
+      <textarea class ="form-field" type="text" placeholder="Enter your address " id="address"></textarea><br>
+      
+      <label class ="form-field" for="pincode">Pincode:<span style="color:rgb(250, 152, 152)">......</span></label>
+      <input class ="form-field" type="text" placeholder="Enter your pincode" id="pincode" required><br>
+
+      <label class ="form-field" for="state">State:<span style="color:rgb(250, 152, 152)">..,......</span></label>
+      <input class ="form-field" type="text" placeholder="Enter  your state " id="state" required><br>
+      
+      <label class ="form-field" for="country">Country:<span style="color:rgb(250, 152, 152)">......</span></label>
+      <input class ="form-field" type="text" placeholder="Enter your Country " id="country" required><br>
+      
+      <label class ="form-field" for="gender">Gender:<span style="color:rgb(250, 152, 152)">......</span></label>
+      <select class ="form-field" name="gender" id="gender">
+        <option value="Gender"> Gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+        <option value="Other">Other</option>
+      </select><br>
+      
+      <label class ="form-field" for="food">Foods:<span style="color:rgb(250, 152, 152)">........</span></label>
+      <select class ="form-field" name="food" id="food">
+        <option value="">Choose of food</option>
+        <option value="Salad">Chapathi</option>
+        <option value="Sandwich">Chilliparata</option>
+        <option value="Briyani">Biriyani</option>
+        <option value="Cardrice">Cardrice</option>
+        <option value="Dosai">Dosai</option>
+      </select>
+      
+      
+      
+      <button class ="form-field" type="submit" id="submit" required>submit</button>  <input type="button" onclick="myFunction()" value="Clear" required>  
+       
+           </div>
+           </form>
+
+                <div class="tables">
+                    <table id="table" class="table">
+                        <thead>
+                            <tr>
+                                <th>FirstName</th>
+                                <th>LastName</th>
+                                <th>Address</th>
+                                <th>Pincode</th>
+                                <th>Gender</th>
+                                <th>Food</th>
+                                <th>State</th>
+                                <th>Country</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                  </div>
+                </div> 
+          <script>
+
+var formSubmit=document.querySelector('#form')
+
+formSubmit.addEventListener('submit',(e) => {
+e.preventDefault()
+var firstName = document.querySelector('#first-name')
+var lastName = document.querySelector('#last-name')
+var adress = document.querySelector('#address')
+var pincode = document.querySelector('#pincode')
+var gender = document.querySelector('#gender')
+var food = document.querySelector('#food')
+var state = document.querySelector('#state')
+var country = document.querySelector('#country')
+
+var array = [firstName,lastName,adress,pincode,gender,food,state,country]
+
+var tableRow = document.createElement('tr')
+var count = 0;
+for(var i = 0; i < array.length; i++){
+  if(array[i].value  != ''){
+    var tableData = document.createElement('td')
+    tableData.innerHTML=array[i].value
+    tableRow.append(tableData)
+    count++
+  
+  }
+  
+}
+if(count > 2) {
+  document.querySelector('tbody').append(tableRow)
+}else{
+  alert("Choose Fields")
+}
+    
+for(let i of array){
+  i.value = ''
+}
+
+})
+
+function myFunction() {
+  document.getElementById("form").reset();
+}
+           
+     </script>
+       <script src=" https://app.zenclass.in/sheets/v1/js/zen/suite/bundle.js"></script>
+</body>
+</html>
